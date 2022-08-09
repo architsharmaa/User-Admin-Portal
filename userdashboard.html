@@ -1,0 +1,78 @@
+<!-- author -> @archit.sharma
+This page contains functionality for user dashbaord and operations it can perform as user -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- importing style sheets and other dependencies -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Users-Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- script to disable movement when locked out -->
+    <script>
+        if(localStorage.getItem('FullName') == null){
+            window.location.href = 'userform.html';
+        }
+    </script>
+    <!-- main div covers entire page -->
+    <div id="main">
+        <!-- box div at the center of page with glassify effect -->
+        <div id="admin-container">
+            <div>
+
+                <!-- div contaning navbar to navigate across the dashboard -->
+                <div class="navbar" id="navbar">
+
+                    <a class="active" href="userdashboard.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <a href="updateForm.html"><i class="fa fa-refresh" aria-hidden="true"></i> Update Account</a>
+
+                    <!-- logouts the users by destroying current user instance in local storage and redirectiong to index.html -->
+                    <a href="javascript:void(0);" onclick="logoutUser();" id="last-tag"><i class="fa fa-fw fa-user"></i>
+                        Log Out</a>
+
+                    <!-- hamburger options when responsive -->
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i></a>
+
+                </div>
+            </div>
+
+            <!-- dashboard contents -->
+            <div id="admin-dashboard-welcome">
+                <h1> Hi <script>
+                        // displays current logged in user name
+                        document.write(localStorage.getItem('FullName'));
+                    </script>
+                </h1>
+                <!-- displaying details of current account -->
+                <p> The details of this accounts are as follows.</p>
+                <h2>Name : <script>
+                        document.write(localStorage.getItem('FullName'));
+                    </script><br>
+                    Username : <script>
+                        document.write(localStorage.getItem('Username'));
+                    </script><br>
+                    Role : <script>
+                        document.write(localStorage.getItem('Role'));
+                    </script>
+                </h2>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- adding toastifiers class -->
+    <div id="logout-toast"><div id="img"><i class="fa fa-check" aria-hidden="true"></i></div><div id="desc">Logged Out, Sucessfully !</div></div>
+
+
+    <!-- importing js scripts to be used -->
+    <script src="./javascripts/script.js"></script>
+    <script src="./javascripts/validation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!-- author -> @archit.sharma
+This page contains functionality for admin/user to update their data in the system -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- importing style sheets and other dependencies -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Account</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- script to disable movement when locked out -->
+    <script>
+        if(localStorage.getItem('adminFullName') == null && localStorage.getItem('FullName') == null){
+            location.replace(document.referrer);
+        }
+    </script>
+    <!-- main div covers entire page -->
+    <div id="main">
+
+
+        <!-- box div at the center of page with glassify effect -->
+        <div id="update-container">
+
+            <div>
+                <!-- div contaning navbar to navigate across the dashboard -->
+                <div class="navbar" id="navbar">
+                    <!-- navigates across multiple pages in dashboard -->
+                    <a href="adminDashboard.html" id = "dashboard-link"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <script>
+                       if(localStorage.getItem('adminRole') === null && localStorage.getItem('Role') === 'user'){
+                        document.getElementById('dashboard-link').href="userdashboard.html";
+                    } 
+                    </script>
+                    <a href="updateForm.html"><i class="fa fa-refresh" aria-hidden="true"></i> Update Account</a>
+                    <a href="database.html" id ='database-option'><i class="fa-solid fa-database"></i> User Database</a>
+                    <!-- //script to disable admin actions for users -->
+                    <script>
+                    if(localStorage.getItem('adminRole') === null && localStorage.getItem('Role') === 'user'){
+                    document.getElementById('database-option').style.display="none";
+                    }
+                    </script>
+
+                    <!-- logouts the users by destroying current user instance in local storage and redirectiong to index.html -->
+                    <a href="javascript:void(0);" onclick="logoutUser();" id="last-tag"><i class="fa fa-fw fa-user"></i>
+                        Log Out</a>
+
+                    <!-- hamburger options when responsive -->
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i></a>
+
+                </div>
+            </div>
+
+            <div id = "text-container">
+
+                <!-- displays current logged in user/admin name and guiding instructions -->
+                <div id="form-text">
+                    <h2 id="form-greeting-header"> Welcome <span id="last-word">
+                            <script>
+                                if(localStorage.getItem('adminFullName') === null){
+                                    document.write(localStorage.getItem('FullName'));
+                                }
+                                else{
+                                    document.write(localStorage.getItem('adminFullName'));
+                                }
+                            </script> 
+                        </span> </h2>
+
+                    <div id="form-content-span">
+                        <span>Please update your account information as required</span>
+                    </div>
+                </div>
+
+                <!-- form box to update the data -->
+                <div id="form-content">
+                    <div class="flip-container">
+                        <div class="flipper" id="flipper">
+                            <div class="front">
+                                <h1 class="title">Update</h1>
+
+                                <!-- script to set update type -->
+                                <script>
+                                    if(document.referrer === 'http://127.0.0.1:5500/database.html' || document.referrer === 'database.html'){
+                                    update = 'adminUpdate';
+                                    }
+                                    else{
+                                        update = 'currentUser';
+                                    }
+                                </script>
+
+                                <!-- inputing variable name -->
+                                <form name="update-Form" onsubmit="updateForm(event, update);">
+                                    <div class="input-control">
+                                        <script></script>
+                                        <input type="text" id="name-input" name="name-input" placeholder="Full Name"
+                                            oninput="validateNameChange()" />
+                                        <script type="text/javascript">
+                                            document.getElementById("name-input").setAttribute('value', localStorage
+                                                .getItem('FullName'));
+                                        </script>
+                                        <div class="error" id="name-error"></div>
+                                    </div>
+                                    <div class="input-control">
+                                        <input type="text" id="username-input" name="username-input"
+                                            placeholder="Username" oninput="validateUsernameChange()" />
+                                        <script type="text/javascript">
+                                            document.getElementById("username-input").setAttribute('value', localStorage
+                                                .getItem('Username'));
+                                        </script>
+                                        <div class="error" id="username-error"></div>
+                                    </div>
+                                    <div class="input-control">
+                                        <input type="password" id="password-input" name="password-input"
+                                            placeholder="Password" oninput="validatePasswordChange()" />
+                                        <script type="text/javascript">
+                                            document.getElementById("password-input").setAttribute('value', localStorage
+                                                .getItem('Password'));
+                                        </script>
+                                        <div class="error" id="password-error"></div>
+                                    </div>
+                                    <input type="submit" value="Update" id="login-button" disabled />
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- importing toasters div -->
+    <div id="signup-sucess-toast"><div id="img"><i class="fa fa-check" aria-hidden="true"></i></div><div id="desc">Updated Sucessfully !</div></div>
+    <div id="signup-fail-toast"><div id="img"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div><div id="desc">Username Already Exists !</div></div>
+    <!-- adding toastifiers class -->
+    <div id="logout-toast"><div id="img"><i class="fa fa-check" aria-hidden="true"></i></div><div id="desc">Logged Out, Sucessfully !</div></div>
+
+    <!-- importing necessary scripts -->
+    <script src="./javascripts/script.js"></script>
+    <script src = './javascripts/validation.js'></script>
+    <script src = "./javascripts/operator.js"></script>
+    <script src="./javascripts/updateForm.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!-- author -> @archit.sharma
+This page contains functionality for admin signup as well as login form -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- inserts required style sheets and dependencies -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>MobileZ-Admin Form</title>
+</head>
+
+<body>
+
+    <!-- main div covers entire page -->
+    <div id="main">
+
+        <!-- box div at the center of page with glassify effect -->
+        <div id="container">
+
+            <!-- displays guiding and greeting texts for the page -->
+            <div id="form-text">
+                <h2 id="form-greeting-header"> Welcome <span id="last-word">Admin!</span> </h2>
+
+                <div id="form-content-span">
+                    <span>Please login as admin to acess admin dashboard</span>
+                </div>
+            </div>
+
+
+            <!-- form box with flipping ability between login and signup -->
+            <div id="form-content">
+
+                <!-- div contains the box for the form  -->
+                <div class="flip-container">
+                    <div class="flipper" id="flipper">
+
+                        <!-- front part of the flip box dsipays options to login -->
+                        <div class="front">
+                            <h1 class="title">Login</h1>
+                            <form name="login" onsubmit="loginvalidation(event, 'admin');">
+                                <input type="text" name="username-input" placeholder="Username" required />
+                                <input type="password" name="password-input" placeholder="Password" required />
+                                <input type="submit" value="Login" />
+                            </form>
+
+                            <!-- flipping to signup functionality -->
+                            <a class="flipbutton" id="loginButton" href="#">Create my account →</a>
+                        </div>
+
+                        <!-- back part of the flip box dsipays options to signup -->
+                        <div class="back">
+                            <h1 class="title">Register</h1>
+
+                            <form name="signup" onsubmit="signupValidation(event, 'admin');">
+                                <div class="input-control">
+                                    <input type="text" id="name-input" name="name-input" placeholder="Full Name" oninput="nameValidation()"/>
+                                    <div class="error" id = "name-error"></div>
+                                </div>
+                                <div class="input-control">
+                                    <input type="text" id="username-input" name="username-input" placeholder="Username" oninput="usernameValidation()"/>
+                                    <div class="error" id = "username-error"></div>
+                                </div>
+                                <div class="input-control">
+                                    <input type="password" id="password-input" name="password-input" placeholder="Password" oninput="passwordValidation()"/>
+                                    <div class="error" id = "password-error"></div>
+                                </div>
+                                <input type="submit" value="Sign Up" id="login-button" disabled/>
+                            </form>
+                            <!-- flipping to login functionality -->
+                            <a class="flipbutton" id="registerButton" href="#">Login to my account →</a>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <!-- //toastifiers for texts -->
+    <div id="login-toast"><div id="img"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div><div id="desc">Wrong Username or Password</div></div>
+    <div id="signup-sucess-toast"><div id="img"><i class="fa fa-check" aria-hidden="true"></i></div><div id="desc">Admin Added, Sucessfully !</div></div>
+    <div id="signup-fail-toast"><div id="img"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div><div id="desc">Username Already Exists !</div></div>
+
+    <!-- importing required scripts to provide functionality  -->
+    <script src="./javascripts/script.js"></script>
+    <script src="./javascripts/operator.js"></script>
+    <script src="./javascripts/validation.js"></script>
+
+
+
+</body>
+
+</html>

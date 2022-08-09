@@ -1,0 +1,769 @@
+/*basic body styling*/
+html, body{
+	width: 100%;
+	min-height: 100%;
+	margin:0px;
+	/* fonts used */
+	font-family: 'Roboto', sans-serif;
+	/* background backdrop image */
+	background: url(./assets/background.svg);
+	background-position: center;
+}
+
+
+/* container div for box in middle of page */
+ #container{
+	
+	/* setting up dimensions for box */
+	width: 70%;
+	height: 58%;
+
+	/* flex boxes for easy divs and responsiveness */
+	display: flex;
+	flex-flow: row wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	/* postioning the box */
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+    margin: auto;
+	column-count: auto;
+	overflow: hidden;
+
+	padding: 2%;
+
+	/* adding glassify like features */
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+/* container div for box in middle of page */
+#update-container{
+	
+	/* setting up dimensions for box */
+	width: 70%;
+	height: 58%;
+
+	/* postioning the box */
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+    margin: auto;
+	column-count: auto;
+	overflow: hidden;
+
+	padding: 2%;
+
+	/* adding glassify like features */
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+#text-container{
+/* flex boxes for easy divs and responsiveness */
+display: flex;
+flex-flow: row wrap;
+flex-wrap: wrap;
+justify-content: space-between;
+
+}
+
+
+/* contet guiding features */
+#content, #form-content{
+	width: 45%;
+	height: 100%;
+	float: right;
+	color: black;
+	overflow: hidden;
+
+}
+
+/* illustration for the page */
+#landing-page-illustration{
+	width: 47%;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+
+}
+
+/* image configurations */
+#landing-image{
+	height: 100%;
+	width: 100%;
+}
+
+/* heading of the page */
+#content h2{
+
+	/* spacing around */
+	padding-top: 20%;
+	padding-left: 10%;
+	padding-right: 10%;
+	color: #555555;
+	/* font edit */
+	font-size: 35px;
+	font-weight: 100;
+	
+}
+
+/* last word in heading */
+#last-word{
+	color:#FF9E4F;
+}
+
+/* span heading */
+#content-span{
+	color: #555555;
+	padding-left: 8%;
+}
+
+/* button tags in the landing page */
+#landing-page-button{
+	/* padding the buttons */
+	padding-top: 10%;
+	padding-left: 10%;
+	padding-right: 15%;
+	/* box flex  */
+	display: flex;
+	flex-flow: row wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+/* button to login as admin */
+#admin-button{
+	font-size: 25px;
+	font-weight: 100;
+	padding: 2%;
+	width: 45%;
+	color: #555555;
+	background: transparent;
+	border-color: #FF9E4F;
+}
+
+/* button to login as user */
+#users-button{
+	font-size: 25px;
+	font-weight: 100;
+	padding: 2%;
+	width: 45%;
+	color: #555555;
+	background: transparent;
+	border-color: #FF9E4F;
+}
+
+#form-text{
+	padding-top: 10%;
+	padding-left: 8%;
+	position: relative;
+}
+
+#form-greeting-header{
+	color: #555555;
+	font-size: 40px;
+}
+
+#form-content-span{
+	color: #555555;
+}
+
+/* box on the flip */
+.flip-container {
+	padding-top: 10%;
+	padding-left: 5%;
+	perspective: 1000;
+	color: #555555;
+}
+
+/* flipping the form css */
+.flipper {
+  padding: 30px;
+  width: 300px;
+  height:280px;
+  position: relative;
+    background: #f5f5f5;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+	
+	transition: 0.6s;
+	transform-style: preserve-3d;
+}
+
+.front, .back {
+  /*background-color: rgba(0,0,0,.3);*/
+  position: absolute;
+    padding:10px 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+	
+	backface-visibility: hidden;
+}
+
+/* front of the form */
+.front{
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+/* back of the form */
+.back{
+    transform: rotateY(180deg);
+}
+
+/* flipping features */
+.flip{
+		transform: rotateY(180deg);
+}
+
+/* input fields of the form */
+input{
+    width:100%;
+    margin-bottom:15px;
+    height:40px;
+    box-sizing: border-box;
+    padding:10px;
+}
+
+.title{
+  text-align: center;
+}
+
+/* flipping link */
+.flipbutton{
+    color:#FF9E4F;
+    text-decoration:none;
+    text-align:left !important;
+}
+
+/* navbar styling */
+.navbar {
+	width: 100%;
+	background-color: transparent;
+	overflow: auto;
+  }
+  
+  .navbar a {
+	float: left;
+	padding: 12px;
+	color: black;
+	text-decoration: none;
+	font-size: 17px;
+  }
+  
+  /* hover feature */
+  .navbar a:hover {
+	background: rgba(255, 161, 133, 0.6);
+	-moz-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px;
+  }
+
+  .navbar .icon {
+	display: none;
+  }
+
+  /* last word */
+  #last-tag{
+  float:right;
+  }
+
+  #admin-dashboard-welcome{
+	  float: top;
+	  align-items: center;
+  }
+
+  #admin-dashboard-welcome h1{
+	color: #555555;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 5%;
+  }
+
+  #admin-dashboard-welcome h2,p{
+	color: #555555;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 2%;
+	font-weight: 100;
+  }
+
+/* dashboard of admin */
+  #admin-container{
+	
+	width: 70%;
+	height: 58%;
+	display: flex;
+	flex-flow: column wrap;
+	flex-wrap: wrap;
+
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+    margin: auto;
+	column-count: auto;
+	overflow: hidden;
+
+	padding: 2%;
+
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+/* dashboard of admin */
+#searchUser-container{
+	
+	width: 70%;
+	height: 58%;
+
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+    margin: auto; 
+	overflow-y: scroll;
+	padding: 2%;
+
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+#searchUserForm{
+	padding-top: 2%;
+}
+
+/* user table styling */
+  #displayTable{
+	
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+  }
+  
+  #displayTable th, #displayTable td {
+	 /* Left-align text */
+	text-align: center;
+	/* Add padding */
+	padding: 12px; 
+  }
+  
+  #displayTable tr {
+	/* Add a bottom border to all table rows */
+	border-bottom: 1px solid #ddd;
+  }
+  
+  #displayTable tr.header, #displayTable tr:hover {
+	/* Add a grey background color to the table header and on hover */
+	background-color: #f7b2a4;
+  }     
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 14px;
+	padding: 10px;
+	width: 100%;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 12px;
+    height: 1px;
+}
+
+.input-control.submitted input {
+    border-color: #555555;
+}
+
+.searchUser{ 
+	position:relative;
+	  overflow-x:auto;
+	  overflow-y: auto;
+}
+
+#login-toast, #signup-sucess-toast, #logout-toast, #signup-fail-toast {
+    visibility: hidden;
+    max-width: 50px;
+    height: 50px;
+    /*margin-left: -125px;*/
+    margin: auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    bottom: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+#login-toast #img, #signup-sucess-toast #img, #logout-toast #img, #signup-fail-toast #img{
+	width: 50px;
+	height: 50px;
+    
+    float: left;
+    
+    padding-top: 16px;
+    padding-bottom: 16px;
+    
+    box-sizing: border-box;
+
+    
+    background-color: #111;
+    color: #fff;
+}
+#login-toast #desc, #signup-sucess-toast #desc, #logout-toast #desc, #signup-fail-toast #desc{
+
+    
+    color: #fff;
+   
+    padding: 16px;
+    
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#login-toast.show, #signup-sucess-toast.show, #logout-toast.show, #signup-fail-toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 50px} 
+    to {min-width: 350px}
+}
+
+@keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+    from {min-width: 350px} 
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+
+
+
+/* adding media queries for above for responsive */
+@media only screen and (max-width: 850px) {
+	#container{
+		flex-flow: column;
+	}
+	#content{
+		width: 100%;
+		height: 55%;
+	}
+	#landing-page-illustration{
+		width: 100%;
+		height: 45%;
+	}
+
+	#content h2{
+		overflow: hidden;
+		padding-top: 2%;
+		font-size: 20px;
+	}
+
+	#content-span{
+		font-size: 20px;
+	}
+
+	#admin-button{
+		font-size: 15px;
+	}
+
+	#users-button{
+		font-size: 15px;
+	}
+
+	#content-span{
+		color: #555555;
+		padding-left: 8%;
+		font-weight: 100;
+		font-size: 12px;
+	}
+
+	#form-text{
+		width: 100%;
+		height: 22%;
+		font-size: x-small;
+		padding-top: 0%;
+	}
+
+	#form-content{
+		width: 100%;
+		height: 78%;
+	}
+
+	#form-greeting-header{
+		font-size: 25px;
+	}
+
+	#form-content-span{
+		font-size: 13px;
+	}
+
+	.flip-container{
+		padding-top: 0%;
+		padding-left: 2%;
+		perspective: 1000;
+		color: #555555;
+		
+	}
+
+	.flipper {
+		padding-top: 0%;
+		padding-left: 15%;
+		width: 70%;
+		position: relative;
+		  background: #f5f5f5;
+		  -webkit-border-radius: 20px;
+		  -moz-border-radius: 20px;
+		  border-radius: 20px;
+		  
+		  transition: 0.6s;
+		  transform-style: preserve-3d;
+	}
+
+	.title{
+		font-size: medium;
+	}
+
+	.front, .back {
+		position: absolute;
+		padding: 4%;
+		top: 0;
+		left: 0;
+		right: 0;
+		  
+		  backface-visibility: hidden;
+	}
+
+	#username-input,#name-input{
+		width: 100%;
+	}
+
+	#password-input{
+		width: 100%;
+	}
+
+	#login-button{
+		height: 4%;
+	}
+
+	.navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+
+
+}
+
+@media only screen and (min-width:850px ) and (max-width: 950px) {
+	#container{
+		flex-flow: column;
+	}
+	#content{
+		width: 100%;
+		height: 60%;
+	}
+	#landing-page-illustration{
+		width: 100%;
+		height: 40%;
+	}
+
+	#content h2{
+		overflow: hidden;
+		padding-top: 2%;
+		font-size: 28px;
+	}
+
+	#content-span{
+		font-size: 20px;
+	}
+
+	#admin-button{
+		font-size: 25px;
+	}
+
+	#users-button{
+		font-size: 25px;
+	}
+
+	#landing-page-button{
+		padding-top: 5%;
+	}
+
+	
+	#form-text{
+		width: 100%;
+		height: 22%;
+		font-size: x-small;
+		padding-top: 0%;
+	}
+
+	#form-content{
+		width: 100%;
+		height: 78%;
+	}
+
+	#form-greeting-header{
+		font-size: 25px;
+	}
+
+	#form-content-span{
+		font-size: 13px;
+	}
+
+	.flip-container{
+		padding-top: 0%;
+		padding-left: 2%;
+		perspective: 1000;
+		color: #555555;
+		
+	}
+
+	.flipper {
+		padding-top: 0%;
+		padding-left: 15%;
+		width: 70%;
+		position: relative;
+		  background: #f5f5f5;
+		  -webkit-border-radius: 20px;
+		  -moz-border-radius: 20px;
+		  border-radius: 20px;
+		  
+		  transition: 0.6s;
+		  transform-style: preserve-3d;
+	}
+
+	.title{
+		font-size: medium;
+	}
+
+	.front, .back {
+		position: absolute;
+		padding: 4%;
+		top: 0;
+		left: 0;
+		right: 0;
+		  
+		  backface-visibility: hidden;
+	}
+
+	#username-input,#name-input{
+		width: 100%;
+	}
+
+	#password-input{
+		width: 100%;
+	}
+
+	#login-button{
+		height: 4%;
+	}
+
+
+
+}
+
+

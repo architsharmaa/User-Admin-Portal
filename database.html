@@ -1,0 +1,107 @@
+<!-- author -> @archit.sharma
+This page contains functionality for admin to acess teh users/admin database and perform fucntions on itl -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- inserts required style sheets and dependencies -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <title>User-database</title>
+</head>
+
+<body>
+    <!-- script to disable the movement when locked out -->
+    <script>
+        if(localStorage.getItem('adminFullName') == null){
+            window.location.href = 'adminform.html';
+        }
+    </script>
+    <!-- main div covers entire page -->
+    <div id="main">
+
+        <!-- box div at the center of page with glassify effect -->
+        <div id="searchUser-container">
+
+            <div>
+                <!-- div contaning navbar to navigate across the dashboard -->
+                <div class="navbar" id="navbar">
+
+                    <!-- navigates across multiple pages in dashboard -->
+                    <a class="active" href="adminDashboard.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <a href="updateForm.html"><i class="fa fa-refresh" aria-hidden="true"></i> Update Account</a>
+                    <a href="database.html"><i class="fa-solid fa-database"></i> User Database</a>
+
+                    <!-- logouts the users by destroying current user instance in local storage and redirectiong to index.html -->
+                    <a href="javascript:void(0);" onclick="logoutUser();" id="last-tag"><i class="fa fa-fw fa-user"></i>
+                        Log Out</a>
+
+                    <!-- hamburger options when responsive -->
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i></a>
+
+                </div>
+            </div>
+
+            <!-- displays tables from the script below -->
+                <input type="text" id="searchInput" onkeyup="searchPerson()" placeholder="Search the Username">
+                <table id="displayTable" style="margin-top: auto; margin-bottom: auto;">
+                    <tr class="header">
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- script to display table with fucntionalities of delteing user/ updating the user data -->
+    <script>
+        //gets data from the locacal storage and stores as array
+        recordss = JSON.parse(localStorage.getItem("MobilezDatabase")) ? JSON.parse(localStorage.getItem(
+            "MobilezDatabase")) : []
+
+        buildTable(recordss)
+
+
+        //function to build the table
+        function buildTable(data) {
+
+            //getting table by id
+            var table = document.getElementById('displayTable')
+
+            // inserting the values in a table
+            for (var i = 0; i < data.length; i++) {
+                console.log(i);
+                var row = `<tr>
+                              <td>${data[i].name}</td>
+                              <td>${data[i].username}</td>
+                              <td>${data[i].role}</td>
+                              <td><button type="submit" value="Delete" onclick="removeItemOnce(${i})">Delete</button>
+                              <button type="submit" value="Edit" onclick="updateUser(${i})">Edit</button></td>  
+          
+              </tr>`
+                table.innerHTML += row
+            }
+        }
+    </script>
+
+    <!-- adding toastifiers class -->
+    <div id="logout-toast">
+        <div id="img"><i class="fa fa-check" aria-hidden="true"></i></div>
+        <div id="desc">Logged Out, Sucessfully !</div>
+    </div>
+
+    <!-- importing required scripts to provide functionality  -->
+    <script src="./javascripts/script.js"></script>
+    <script src="./javascripts/validation.js"></script>
+    <script src="./javascripts/operations.js"></script>
+</body>
+
+</html>
